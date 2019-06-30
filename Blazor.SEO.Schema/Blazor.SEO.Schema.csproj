@@ -27,7 +27,7 @@
     <Title>Blazor.SEO.Schema</Title>
     <Description>Blazor extensions for Blazor.SEO.Schema.
     Supported platforms: S.E.O, schema.org</Description>
-    <PackageTags>blazor component facebook pixel analytics</PackageTags>
+    <PackageTags>blazor component schema.org product schema SEO S.E.O</PackageTags>
     <RepositoryUrl>https://github.com/minhhieugma/blazor-seo-schema</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.0.0</Version>
