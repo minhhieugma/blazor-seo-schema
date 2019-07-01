@@ -1,4 +1,5 @@
 ﻿using Blazor.SEO.Schema.Helpers;
+using Blazor.SEO.Schema.Schema;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
@@ -8,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace Blazor.SEO.Schema
 {
-    public class Product
+    public class Product : BaseModel
     {
-        [JsonProperty("@context")]
-        public string Context { get; } = @"http://schema.org";
-
-        [JsonProperty("@type")]
-        public string Type { get; } = "Product";
+        public Product()
+        {
+            this.Type = "Product";
+        }
 
         [JsonProperty("aggregateRating")]
         public AggregateRatingModel AggregateRating { get; set; }

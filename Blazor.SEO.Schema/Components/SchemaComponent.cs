@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Blazor.SEO.Schema.Schema;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Newtonsoft.Json;
 
 namespace Blazor.SEO.Schema.Components
 {
-    public class ProductSchemaComponent : ComponentBase, IDisposable
+    public class SchemaComponent<ISchema> : ComponentBase, IDisposable where ISchema : BaseModel
     {
         public const string ConfigureMethod = "SEOSchemaInterop.configure";
         public const string DisposeMethod = "SEOSchemaInterop.dispose";
 
-        protected Product Product { get; set; }
+        protected ISchema Schema { get; set; }
 
         protected Guid Id { get; set; }
 
@@ -20,10 +21,10 @@ namespace Blazor.SEO.Schema.Components
 
         protected override async Task OnAfterRenderAsync()
         {
-            if (this.Product != null)
+            if (this.Schema != null)
             {
                 this.Id = Guid.NewGuid();
-                await JSRuntime.InvokeAsync<string>(ConfigureMethod, Id, JsonConvert.SerializeObject(this.Product));
+                await JSRuntime.InvokeAsync<string>(ConfigureMethod, Id, JsonConvert.SerializeObject(this.Schema));
             }
 
             await base.OnAfterRenderAsync();
