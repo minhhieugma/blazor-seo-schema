@@ -1,41 +1,51 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Blazor.SEO.Schema.Schema;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.RenderTree;
 using Microsoft.JSInterop;
 using Newtonsoft.Json;
 
 namespace Blazor.SEO.Schema.Components
 {
+    //[Route("/{Slug}")]
+    //[Route("/{LanguageCode}/{Slug}")]
     public class SchemaComponent<ISchema> : ComponentBase, IDisposable where ISchema : BaseModel
     {
         public const string ConfigureMethod = "SEOSchemaInterop.configure";
         public const string DisposeMethod = "SEOSchemaInterop.dispose";
 
-        protected ISchema Schema { get; set; }
 
-        protected Guid Id { get; set; }
+        public string Slug { get; set; }
+
+        public string LanguageCode { get; set; }
+
+        [Parameter]
+        public ISchema Schema { get; set; }
 
         [Inject]
         protected IJSRuntime JSRuntime { get; set; }
 
         protected override async Task OnAfterRenderAsync()
         {
-            if (this.Schema != null)
-            {
-                this.Id = Guid.NewGuid();
-                await JSRuntime.InvokeAsync<string>(ConfigureMethod, Id, JsonConvert.SerializeObject(this.Schema));
-            }
-
             await base.OnAfterRenderAsync();
         }
 
-        public async void Dispose()
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            if (this.Id != Guid.Empty)
-            {
-                await JSRuntime.InvokeAsync<string>(DisposeMethod, Id);
-            }
+          
+            base.BuildRenderTree(builder);
+
+
+            builder.AddMarkupContent(0, @$"<script type=""application/ld+json"">{JsonConvert.SerializeObject(this.Schema)}</script>");
+
+
+        }
+
+        public void Dispose()
+        {
+            
         }
     }
 }
