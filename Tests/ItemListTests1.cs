@@ -40,7 +40,7 @@ namespace Tests
                 new ListItemModel(3, "MusicGroup", null, "Michael Jackson")
             };
 
-            var productList = new ItemList<Product>();
+            var productList = new ItemList<ProductModel>();
 
         }
 

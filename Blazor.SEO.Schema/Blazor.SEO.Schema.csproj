@@ -30,7 +30,7 @@
     <PackageTags>blazor component schema.org product schema SEO S.E.O</PackageTags>
     <RepositoryUrl>https://github.com/minhhieugma/blazor-seo-schema</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.1</Version>
+    <Version>1.0.3</Version>
     <RepositoryType>git</RepositoryType>
     <Copyright>Hieu Le(minhhieugma)</Copyright>
   </PropertyGroup>

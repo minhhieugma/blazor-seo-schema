@@ -1,0 +1,68 @@
+﻿@using Blazor.SEO.Schema
+@page "/Product"
+
+
+<Blazor.SEO.Schema.Components.SchemaComponent ISchema="ProductModel" Schema="@Product"></Blazor.SEO.Schema.Components.SchemaComponent>
+
+@code{
+private ProductModel Product { get; set; }
+
+protected override void OnInit()
+{
+    this.Product = new ProductModel();
+
+    this.Product.ProductID = this.Product.MPN = this.Product.SKU = "P123456";
+    this.Product.Name = "Palace Hotel Saigon";
+    this.Product.Description = "Whether you are looking for a business destination or sophisticated leisure hotel in the heart of Ho Chi Minh city, you cannot go pass Palace Hotel Saigon. Located on a very desired address of the renowned street, Nguyen Hue Boulevard, it takes 8km from Tan Son Nhat International Air-Port, few steps for shopping areas, traditional boutique shops and entertainment venues of Dong Khoi and Nguyen Hue Streets, a walking distance to Saigon River, Ho Chi Minh Status square, Opera House, Ben Thanh market, Ho Chi Minh City town hall, Notre Dame Cathedral and Reunification Palace and many commercial buildings around the corners, let the Palace hotel Saigon charm you throughout your stay.";
+    this.Product.Image.Add("http://www.palacesaigon.com/wp-content/uploads/sites/27/2016/06/home-palace-3.jpg");
+    this.Product.Url = "http://www.palacesaigon.com";
+
+    this.Product.AggregateRating = new ProductModel.AggregateRatingModel
+    {
+        ReviewCount = 10,
+        RatingValue = 4.3M
+    };
+
+    this.Product.Offers = new ProductModel.OfferModel
+    {
+        Availability = ProductModel.OfferModel.AvailabilityEnum.InStock,
+        Price = 800,
+        PriceCurrency = Blazor.SEO.Schema.Schema.Currency.USD,
+        ItemCondition = ProductModel.OfferModel.ItemConditionEnum.UsedCondition
+    };
+
+    this.Product.Review.Add(new ProductModel.ReviewModel
+    {
+        Author = "Le Minh Hieu",
+        DatePublished = DateTime.UtcNow,
+        Description = "Good choice",
+        Name = "Good choice"
+    });
+
+    this.Product.Owns = new ProductModel.Organization
+    {
+        Email = "xxxxx@gmail.com",
+        Founder = "XXXX",
+        Url = "https://minhhieugma.com",
+        FoundingLocation = "VN",
+        KnowsLanguage = "EN,VN,JP,CN",
+        FoundingDate = new DateTime(2015, 1, 1),
+        Name = "Noname company",
+        ContactPoint = new List<ProductModel.Organization.ContactPointModel>
+{
+                new ProductModel.Organization.ContactPointModel
+                {
+                    AreaServed = "VN",
+                     ContactType = "customer service",
+                     Telephone = "(+84) 028 3521.8523 – 3521.8524",
+                     ContactOption = "TollFree"
+                }
+            },
+        Address = "",
+    };
+
+    this.Product.Logo = "https://www.google.com/logos/doodles/2015/googles-new-logo-5078286822539264.3-hp2x.gif";
+
+    this.StateHasChanged();
+}
+}

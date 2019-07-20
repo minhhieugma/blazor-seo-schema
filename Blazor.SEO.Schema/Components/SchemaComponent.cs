@@ -9,17 +9,10 @@ using Newtonsoft.Json;
 
 namespace Blazor.SEO.Schema.Components
 {
-    //[Route("/{Slug}")]
-    //[Route("/{LanguageCode}/{Slug}")]
     public class SchemaComponent<ISchema> : ComponentBase, IDisposable where ISchema : BaseModel
     {
         public const string ConfigureMethod = "SEOSchemaInterop.configure";
         public const string DisposeMethod = "SEOSchemaInterop.dispose";
-
-
-        public string Slug { get; set; }
-
-        public string LanguageCode { get; set; }
 
         [Parameter]
         public ISchema Schema { get; set; }
@@ -34,7 +27,7 @@ namespace Blazor.SEO.Schema.Components
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-          
+
             base.BuildRenderTree(builder);
 
 
@@ -45,7 +38,7 @@ namespace Blazor.SEO.Schema.Components
 
         public void Dispose()
         {
-            
+
         }
     }
 }

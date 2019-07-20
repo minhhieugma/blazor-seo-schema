@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Blazor.SEO.Schema
 {
-    public class Product : BaseModel
+    public class ProductModel : BaseModel
     {
-        public Product()
+        public ProductModel()
         {
             this.Type = "Product";
         }
