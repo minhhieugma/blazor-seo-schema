@@ -10,7 +10,7 @@ namespace Tests
         public void Setup()
         {
             var itemList1 = new ItemListModel<string>();
-            itemList1.Type = ItemListModel<string>.ItemListType.ItemList;
+            itemList1.Type = ItemListType.ItemList;
             itemList1.Name = "Top 10 laptops";
             itemList1.ItemListOrder = ItemListModel<string>.ListOrder.Descending;
             itemList1.ItemListElement = new[]

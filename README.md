@@ -9,3 +9,12 @@ https://nuget.org/packages/Blazor-SEO-Schema
 
 ### `Product` schema
 Please look at the sample code in  `Demo\SSR\Demo.SSR\Pages\ProductSchema.razor`
+
+### `ItemList` schema
+Please look at the sample code in  `Demo\SSR\Demo.SSR\Pages\ItemListSchema.razor`
+
+### `RealEstateAgent` schema
+Please look at the sample code in  `Demo\SSR\Demo.SSR\Pages\RealEstateAgentSchema.razor`
+
+### `BreadcrumbList` schema
+Please look at the sample code in  `Demo\SSR\Demo.SSR\Pages\BreadcrumbListSchema.razor`

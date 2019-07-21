@@ -1,4 +1,6 @@
 ﻿@using Blazor.SEO.Schema
+@using Blazor.SEO.Schema.Organization
+
 @page "/Product"
 
 
@@ -39,7 +41,7 @@ protected override void OnInit()
         Name = "Good choice"
     });
 
-    this.Product.Owns = new ProductModel.Organization
+    this.Product.Owns = new OrganizationModel
     {
         Email = "xxxxx@gmail.com",
         Founder = "XXXX",
@@ -48,9 +50,9 @@ protected override void OnInit()
         KnowsLanguage = "EN,VN,JP,CN",
         FoundingDate = new DateTime(2015, 1, 1),
         Name = "Noname company",
-        ContactPoint = new List<ProductModel.Organization.ContactPointModel>
+        ContactPoint = new List<OrganizationModel.ContactPointModel>
 {
-                new ProductModel.Organization.ContactPointModel
+                new OrganizationModel.ContactPointModel
                 {
                     AreaServed = "VN",
                      ContactType = "customer service",
