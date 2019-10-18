@@ -17,6 +17,7 @@ namespace Blazor.SEO.Schema
             Type = ItemListType.ItemList;
         }
 
+        [JsonConverter(typeof(StringEnumConverter))]
         [JsonProperty("@type")]
         public new ItemListType Type { get; set; }
 
