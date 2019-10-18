@@ -1,0 +1,47 @@
+﻿@using Blazor.SEO.Schema
+@using Blazor.SEO.Schema.Schema.Enum
+
+@page "/BreadcrumbList"
+
+
+<Blazor.SEO.Schema.Components.SchemaComponent ISchema="ItemListModel<ThingModel>" Schema="@SchemaModel"></Blazor.SEO.Schema.Components.SchemaComponent>
+
+@code{
+    private ItemListModel<ThingModel> SchemaModel { get; set; }
+
+    protected override void OnInit()
+    {
+        this.SchemaModel = new ItemListModel<ThingModel>();
+        this.SchemaModel.Type = ItemListType.BreadcrumbList;
+        this.SchemaModel.ItemListOrder = ListOrder.Ascending;
+
+        this.SchemaModel.ItemListElement.Add(new ThingModel
+        {
+            Url = "https://google.com",
+            Identifier = "123",
+            Name = "ABC",
+            Description = "Cheapest Laptop 2019",
+            Image = "https://www.google.com/search?q=cheapest+laptop&rlz=1C1CHBF_enVN765VN765&source=lnms&tbm=isch&sa=X&ved=0ahUKEwil0JbpgsPjAhXVlOYKHch6BGMQ_AUIESgB&biw=1366&bih=625"
+        });
+
+        this.SchemaModel.ItemListElement.Add(new ThingModel
+        {
+            Url = "https://google.com",
+            Identifier = "456",
+            Name = "DEF",
+            Description = "Best performance Laptop 2019",
+            Image = "https://www.google.com/search?rlz=1C1CHBF_enVN765VN765&biw=1366&bih=625&tbm=isch&sa=1&ei=HMkyXczHPL37z7sPs6eDoAE&q=Best+performance+Laptop+2019&oq=Best+performance+Laptop+2019&gs_l=img.3..0i24.31230.31230..31385...0.0..0.58.58.1......0....2j1..gws-wiz-img.W24EGzGDVkg&ved=0ahUKEwjMxfrpgsPjAhW9_XMBHbPTABQQ4dUDCAY&uact=5"
+        });
+
+        this.SchemaModel.ItemListElement.Add(new ThingModel
+        {
+            Url = "https://google.com",
+            Identifier = "789",
+            Name = "GHI",
+            Description = "Thinnest Laptop 2019",
+            Image = "https://www.google.com/search?rlz=1C1CHBF_enVN765VN765&biw=1366&bih=625&tbm=isch&sa=1&ei=PckyXayUEJPXz7sP-peJgAw&q=Thinest+Laptop+2019&oq=Thinest+Laptop+2019&gs_l=img.3...8102.8102..8309...0.0..0.0.0.......0....2j1..gws-wiz-img.tqC-xo2mZgU&ved=0ahUKEwjspqz5gsPjAhWT63MBHfpLAsAQ4dUDCAY&uact=5"
+        });
+
+
+    }
+}

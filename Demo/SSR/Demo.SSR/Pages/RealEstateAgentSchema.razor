@@ -1,0 +1,26 @@
+﻿@using Blazor.SEO.Schema
+@using Blazor.SEO.Schema.Schema.Enum
+@using Blazor.SEO.Schema.LocalBusiness
+
+@page "/RealEstateAgent"
+
+
+<Blazor.SEO.Schema.Components.SchemaComponent ISchema="RealEstateAgentModel" Schema="@SchemaModel"></Blazor.SEO.Schema.Components.SchemaComponent>
+
+@code{
+    private RealEstateAgentModel SchemaModel { get; set; }
+
+    protected override void OnInit()
+    {
+        this.SchemaModel = new RealEstateAgentModel();
+        this.SchemaModel.CurrenciesAccepted = "USD;VND;JPY;CNY;";
+
+        this.SchemaModel.OpeningHours = "Mo, Tu, We, Th, Fr, Sa, Su 09:00-18:00";
+
+        this.SchemaModel.PaymentAccepted = "Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System";
+
+        this.SchemaModel.PriceRange = "500$-10000$";
+
+
+    }
+}
