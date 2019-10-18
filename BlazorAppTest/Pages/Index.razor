@@ -4,12 +4,12 @@
 
 Welcome to your new app.
 
-<SchemaComponent ISchema="Product" Schema="product" >
+<SchemaComponent ISchema="ProductModel" Schema="product" >
 
 </SchemaComponent>
 
 @code{
-    private Product product = new Product();
+    private ProductModel product = new ProductModel();
 
     protected async override Task OnInitializedAsync()
     {
@@ -18,7 +18,7 @@ Welcome to your new app.
         product.Name = "Kenmore White 17\" Microwave";
         product.Image = new List<string> { "kenmore-microwave-17in.jpg" };
 
-        product.Review = new List<Product.ReviewModel> { new Product.ReviewModel
+        product.Review = new List<ProductModel.ReviewModel> { new ProductModel.ReviewModel
             {
                 Author = "Ellie",
                 Description = "The lamp burned out and now I have to replace it.",
