@@ -1,0 +1,29 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SchemaComponent ISchema="Product" Schema="product" >
+
+</SchemaComponent>
+
+@code{
+    private Product product = new Product();
+
+    protected async override Task OnInitializedAsync()
+    {
+        product.Description = "0.7 cubic feet countertop microwave. Has six preset cooking categories and convenience features like Add-A-Minute and Child Lock.";
+
+        product.Name = "Kenmore White 17\" Microwave";
+        product.Image = new List<string> { "kenmore-microwave-17in.jpg" };
+
+        product.Review = new List<Product.ReviewModel> { new Product.ReviewModel
+            {
+                Author = "Ellie",
+                Description = "The lamp burned out and now I have to replace it.",
+                Name = "Not a happy camper",
+
+            } };
+    }
+}
